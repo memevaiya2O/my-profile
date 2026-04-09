@@ -1,5 +1,8 @@
 import { defineConfig } from 'vite';
-import { viteObfuscator as obfuscator } from 'vite-plugin-obfuscator';
+import pkg from 'vite-plugin-obfuscator';
+
+// CommonJS মডিউল থেকে প্লাগইনটি বের করে আনা হচ্ছে
+const obfuscator = (pkg as any).viteObfuscator || pkg;
 
 export default defineConfig({
   plugins: [
